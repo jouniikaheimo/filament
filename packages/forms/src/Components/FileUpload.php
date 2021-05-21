@@ -191,7 +191,7 @@ class FileUpload extends Field
 
         $storage = $this->getDisk();
 
-        if (
+        if (($storage->exists($path)) &&
             $storage->getDriver()->getAdapter() instanceof AwsS3Adapter &&
             $storage->getVisibility($path) === 'private'
         ) {
