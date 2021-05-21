@@ -201,7 +201,11 @@ class FileUpload extends Field
             );
         }
 
-        return $storage->url($path);
+        if($storage->exists($path))
+        {
+            return $storage->url($path);
+        }
+        return null;
     }
 
     public function getUploadProgressIndicatorPosition()
